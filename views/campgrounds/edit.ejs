@@ -1,0 +1,93 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <h1 class="text-center">キャンプ場の編集</h1>
+  <div class="offset-3 col-6">
+    <form
+      action="/campgrounds/<%= campground._id %>?_method=PUT"
+      method="POST"
+      class="validated-form"
+      novalidate
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">タイトル</label>
+        <input
+          type="text"
+          id="title"
+          name="campground[title]"
+          class="form-control"
+          value="<%=campground.title%>"
+          required
+        />
+        <div class="valid-feedback">OK!</div>
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">場所</label>
+        <input
+          type="text"
+          id="location"
+          name="campground[location]"
+          class="form-control"
+          value="<%=campground.location%>"
+          required
+        />
+        <div class="valid-feedback">OK!</div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="price" class="form-label">価格</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">￥</span>
+          <input
+            id="price"
+            type="text"
+            class="form-control"
+            placeholder="0"
+            aria-label="価格"
+            aria-describedby="price-label"
+            name="campground[price]"
+            value="<%=campground.price%>"
+            required
+          />
+        </div>
+        <div class="valid-feedback">OK!</div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">説明</label>
+        <textarea
+          id="description"
+          name="campground[description]"
+          class="form-control"
+          required
+        ><%=campground.description%></textarea>
+        <div class="valid-feedback">OK!</div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label"
+          >画像の追加アップロード</label
+        >
+        <input
+          class="form-control"
+          type="file"
+          id="image"
+          name="images"
+          multiple
+        />
+        <div class="valid-feedback">OK!</div>
+      </div>
+      <div class="mb-3">
+        <% campground.images.forEach((img, i) => { %>
+          <img src="<%= img.thumbnail %>" class="img-thumbnail"  alt="">
+          <div class="form-check-inline">
+            <input type="checkbox" name="deleteImages[]" id="image-<%= i %>" value="<%= img.filename %>">
+          </div>
+          <label for="image-<%= i %>">削除</label>
+       <% }); %>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-info">更新する</button>
+      </div>
+    </form>
+    <a href="/campgrounds">一覧に戻る</a>
+  </div>
+</div>
