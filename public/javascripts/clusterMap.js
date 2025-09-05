@@ -47,9 +47,9 @@
                     'step',
                     ['get', 'point_count'],
                     '#51bbd6',
-                    5,
+                    3,
                     '#f1f075',
-                    10,
+                    5,
                     '#f28cb1'
                 ],
                 'circle-radius': [
