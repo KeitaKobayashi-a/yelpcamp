@@ -6,9 +6,8 @@ async function getWeather(lat, lon) {
     const data = await res.json();
     console.log("APIレスポンス", data);
 
-    const weatherDiv = document.createElement("div");
-    weatherDiv.innerHTML = `<p>気温: ${data.current_weather.temperature}°C</p>`;
-    document.body.appendChild(weatherDiv);
+    const weatherDiv = document.getElementById("weather-info");
+    weatherDiv.textContent = `気温: ${data.current_weather.temperature}°C`;
   } catch (error) {
     console.error("fetchエラー:", error);
   }
