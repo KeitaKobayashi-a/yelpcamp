@@ -44,7 +44,7 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600, // time period in seconds
 });
 
-store.on('error', e => console.log('セッションストアエラー',e));
+store.on("error", (e) => console.log("セッションストアエラー", e));
 
 const sessionConfig = {
   store,
@@ -88,6 +88,7 @@ const connectSrcUrls = [
   "https://api.mapbox.com",
   "https://*.tiles.mapbox.com",
   "https://events.mapbox.com",
+  "https://api.open-meteo.com",
 ];
 const fontSrcUrls = [];
 const imgSrcUrls = [
