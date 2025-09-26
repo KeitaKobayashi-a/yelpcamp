@@ -1,0 +1,12 @@
+async function getWeather(lat, lon) {
+  const res = await fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max&models=jma_seamless&current=temperature_2m`
+  );
+  const data = await res.json();
+
+  const weatherDiv = document.createElement("div");
+  weatherDiv.innerHTML = `<p>気温: ${data.current.temperature_2m}°C</p>`;
+  document.body.appendChild(weatherDiv);
+}
+
+getWeather(latitude, longitude);
