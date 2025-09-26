@@ -158,11 +158,12 @@
     <% } %>
   </div>
 </div>
+<script src="/javascripts/weather.js"></script>
 <script>
-  const latitude = '<%= campground.geometry.coordinates[1] %>'
-  const longitude = '<%= campground.geometry.coordinates[0] %>'
-  const mapToken = '<%= process.env.MAPBOX_TOKEN %>';
-  const targetCampground = <%- JSON.stringify(campground)  %>
+    const latitude = '<%= campground.geometry.coordinates[1] %>'
+    const longitude = '<%= campground.geometry.coordinates[0] %>'
+    const mapToken = '<%= process.env.MAPBOX_TOKEN %>';
+    const targetCampground = <%- JSON.stringify(campground)  %>
+  getWeather(latitude, longitude);
 </script>
 <script src="/javascripts/showPageMap.js"></script>
-<script src="/javascripts/weather.js"></script>

@@ -9,5 +9,3 @@ async function getWeather(lat, lon) {
   weatherDiv.innerHTML = `<p>気温: ${data.current_weather.temperature}°C</p>`;
   document.body.appendChild(weatherDiv);
 }
-
-getWeather(latitude, longitude);
